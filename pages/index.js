@@ -1,12 +1,15 @@
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Welcome to SWITCH</h1>
+      <div className={styles.container}>
+        <h1>Welcome to Switch</h1>
 
-      <div className="button">
-        <button>View products</button>
+        <div className={styles.view_button}>
+          <Link href="/">View products</Link>
+        </div>
       </div>
     </main>
   );
