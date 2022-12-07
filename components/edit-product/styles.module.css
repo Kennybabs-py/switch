@@ -1,0 +1,49 @@
+.edit_form {
+  border: 1px solid black;
+  margin: 20px 0 0;
+  width: 90%;
+  max-width: 700px;
+  padding: 10px;
+}
+
+.inputs_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.inputs_container input {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid black;
+  height: 36px;
+  background-color: inherit;
+  padding: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.submit_edit_btn {
+  width: 100px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: #343417;
+  color: #efe6d7;
+  box-shadow: var(--box-shadow);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.submit_edit_btn:hover {
+  color: #343417;
+  background: #efe6d7;
+  border: 1px solid #343417;
+}

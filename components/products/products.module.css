@@ -12,6 +12,38 @@
 
 .header {
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.5rem, 2.5vw, 3rem);
+  margin-bottom: 1.2rem;
+}
+
+.add_product {
+  border-bottom: 5px solid grey;
+  padding: 10px 0;
+}
+.add_product > button {
+  width: 150px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid var(---color-grey);
+  box-shadow: var(--box-shadow);
+  border-radius: 20px;
+  background: inherit;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.add_product > button:hover {
+  background: black;
+  color: white;
+}
+
+.edit_product {
+  margin-top: 1rem;
+  border: 1px solid black;
 }
