@@ -18,8 +18,15 @@
 
 .main .container h1 {
   color: var(--color-grey);
+  font-weight: 700;
+  font-size: clamp(2rem, 3vw, 5.5rem);
+}
+
+.main .container p {
+  color: var(--color-grey);
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.2rem, 2.5vw, 3rem);
 }
 
 .view_button a {
