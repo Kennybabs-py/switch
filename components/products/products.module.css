@@ -1,0 +1,17 @@
+.products {
+  width: 100%;
+  min-height: 300px;
+  margin-top: 6rem;
+}
+
+.products .container {
+  width: 95%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
