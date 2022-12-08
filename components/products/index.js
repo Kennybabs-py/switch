@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -5,6 +6,7 @@ import AddProduct from "../add-product";
 import styles from "./products.module.css";
 
 export default function Products() {
+  const [showEdit, setShowEdit] = useState(false);
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
@@ -14,12 +16,16 @@ export default function Products() {
         <h2 className={styles.header}>Products</h2>
 
         <div className={styles.add_product}>
-          <button>
+          <button
+            onClick={() => {
+              setShowEdit(!showEdit);
+            }}
+          >
             <AiOutlinePlus /> Add Product
           </button>
 
           <div className={styles.add_form_container}>
-            <AddProduct />
+            <AddProduct showEdit={showEdit} />
           </div>
         </div>
 
@@ -28,6 +34,9 @@ export default function Products() {
             return (
               <div key={item.id} className={styles.product_item}>
                 <h2> {item.productName}</h2>
+                <div className={styles.price_category}>
+                  <span>#{item.productPrice}</span> <span>{item.category}</span>
+                </div>
               </div>
             );
           })}

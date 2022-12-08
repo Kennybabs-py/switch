@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export default function AddProduct() {
+export default function AddProduct(props) {
+  const { showEdit } = props;
   return (
-    <form action="" className={styles.add_form}>
+    <form
+      action=""
+      className={`${styles.add_form} ${showEdit ? styles.open : null}`}
+    >
       <div className={styles.inputs_container}>
         <input
           type="text"

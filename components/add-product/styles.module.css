@@ -1,9 +1,24 @@
 .add_form {
-  border: 1px solid black;
   margin: 20px 0 0;
   width: 90%;
   max-width: 700px;
   padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.add_form.open {
+  height: 200px;
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .add_form.open {
+    height: 150px;
+  }
 }
 
 .inputs_container {
