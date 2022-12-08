@@ -14,7 +14,7 @@ const slice = createSlice({
           id: uuid(),
           productName: action.payload.productName,
           category: action.payload.category,
-          productPrice: action.payload.totalValue,
+          productPrice: action.payload.productPrice,
         });
         return newState;
       }

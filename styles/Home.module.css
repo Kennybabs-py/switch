@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Ginger";
-  src: url("/public/fonts/ginger-modern-stylish-font/Ginger.ttf");
+  src: url("../public/fonts/ginger-modern-stylish-font/Ginger.ttf");
 }
 
 .main {
