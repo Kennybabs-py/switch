@@ -1,8 +1,12 @@
+@font-face {
+  font-family: "Ginger";
+  src: url("../../public/fonts/ginger-modern-stylish-font/Ginger.ttf");
+}
+
 .header {
   position: fixed;
   top: 5px;
   width: 100%;
-  backdrop-filter: blur(5px);
 }
 
 .header .container {
@@ -19,5 +23,6 @@
 .header .container span {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--color-grey);
+  font-family: "Ginger";
+  color: #efe6d7;
 }

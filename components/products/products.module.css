@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Ginger";
+  src: url("../../public/fonts/ginger-modern-stylish-font/Ginger.ttf");
+}
+
 .products {
   width: 100%;
   min-height: 300px;
@@ -43,7 +48,33 @@
   color: white;
 }
 
-.edit_product {
+.add_form_container {
   margin-top: 1rem;
   border: 1px solid black;
+}
+
+.products_list {
+  border: 1px solid black;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 1rem 0;
+}
+
+.product_item {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 350px;
+  min-height: 200px;
+  background-color: #efe6d7;
+  box-shadow: var(--box-shadow);
+  border-radius: 20px;
+  padding: 1.5rem 0 0;
+  box-sizing: border-box;
+}
+
+.product_item > h2 {
+  text-align: center;
+  font-family: "Ginger";
 }

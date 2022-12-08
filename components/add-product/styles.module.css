@@ -1,4 +1,4 @@
-.edit_form {
+.add_form {
   border: 1px solid black;
   margin: 20px 0 0;
   width: 90%;
@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.submit_edit_btn {
+.submit_add_btn {
   width: 100px;
   height: 30px;
   display: grid;
@@ -42,7 +42,7 @@
   transition: 300ms ease-in-out;
 }
 
-.submit_edit_btn:hover {
+.submit_add_btn:hover {
   color: #343417;
   background: #efe6d7;
   border: 1px solid #343417;

@@ -1,7 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 
-import EditProduct from "../edit-product";
+import AddProduct from "../add-product";
 import styles from "./products.module.css";
 
 export default function Products() {
@@ -18,14 +18,18 @@ export default function Products() {
             <AiOutlinePlus /> Add Product
           </button>
 
-          <div className={styles.edit_product}>
-            <EditProduct />
+          <div className={styles.add_form_container}>
+            <AddProduct />
           </div>
         </div>
 
         <div className={styles.products_list}>
           {products.map((item) => {
-            return <div key={item.id}>{item.productName}</div>;
+            return (
+              <div key={item.id} className={styles.product_item}>
+                <h2> {item.productName}</h2>
+              </div>
+            );
           })}
         </div>
       </div>
