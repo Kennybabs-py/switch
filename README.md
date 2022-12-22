@@ -2,10 +2,7 @@
 
 Clone the repo on the command line:
 
-```bash
 git clone [https://github.com/Kennybabs-py/switch.git](https://github.com/Kennybabs-py/switch.git)
-
-```
 
 First, run the development server:
 
