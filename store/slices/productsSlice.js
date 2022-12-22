@@ -5,7 +5,13 @@ import { productsData as data } from "../../database";
 
 const slice = createSlice({
   name: "products",
-  initialState: { data: data, isAddData: false },
+  initialState: {
+    data: data,
+    isAddData: false,
+    isEditing: false,
+    editData: {},
+  },
+
   reducers: {
     add: (state, action) => {
       if (action.payload.productName) {
@@ -19,14 +25,27 @@ const slice = createSlice({
         return { ...state, data: [...state.data, newProduct] };
       }
     },
+    getEditData: (state, action) => {
+      const currentProduct = state.data.find(
+        (item) => item.id === action.payload.id
+      );
+      return { ...state, editData: { ...currentProduct } };
+    },
+
     edit: (state, action) => {
-      // loop to check if the id exists in the list, and then change the data according to the id
-      for (let i in state) {
-        if (state[i].id === action.payload.id) {
-          state[i].productName = action.payload.productName;
-          state[i].category = action.payload.category;
-          state[i].productPrice = action.payload.totalValue;
-        }
+      if (action.payload.id) {
+        const editedData = {
+          id: action.payload.id,
+          productName: action.payload.productName,
+          category: action.payload.category,
+          productPrice: action.payload.productPrice,
+        };
+
+        const updatedData = state.data.map((item) => {
+          return item.id === action.payload.id ? editedData : item;
+        });
+
+        return { ...state, data: updatedData };
       }
     },
     del: (state, action) => {
@@ -40,8 +59,12 @@ const slice = createSlice({
     toggleAddState: (state) => {
       return { ...state, isAddData: !state.isAddData };
     },
+    toggleEditState: (state, action) => {
+      return { ...state, isEditing: action.payload.isEditing };
+    },
   },
 });
 
-export const { add, edit, del, toggleAddState } = slice.actions;
+export const { add, edit, del, toggleAddState, getEditData, toggleEditState } =
+  slice.actions;
 export default slice.reducer;

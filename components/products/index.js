@@ -1,8 +1,14 @@
 import { AiOutlinePlus, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-import { del, toggleAddState } from "../../store/slices/productsSlice";
+import {
+  del,
+  toggleAddState,
+  getEditData,
+  toggleEditState,
+} from "../../store/slices/productsSlice";
 
 import AddProduct from "../add-product";
+import EditProduct from "../edit-product";
 import styles from "./products.module.css";
 
 export default function Products() {
@@ -31,7 +37,7 @@ export default function Products() {
         </div>
 
         <div className={styles.products_list}>
-          {products?.length > 0 ? (
+          {products.length > 0 ? (
             <>
               {products?.map((item) => {
                 return (
@@ -50,7 +56,12 @@ export default function Products() {
                       >
                         <AiFillDelete />
                       </button>
-                      <button>
+                      <button
+                        onClick={() => {
+                          dispatch(getEditData({ id: item.id }));
+                          dispatch(toggleEditState({ isEditing: true }));
+                        }}
+                      >
                         <AiFillEdit />
                       </button>
                     </div>
@@ -63,6 +74,8 @@ export default function Products() {
           )}
         </div>
       </div>
+
+      <EditProduct />
     </main>
   );
 }

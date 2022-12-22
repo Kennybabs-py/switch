@@ -1,0 +1,67 @@
+.edit_product {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 600px;
+  min-height: 300px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scale: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #efe6d7;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transform-origin: 80% 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit_product.open {
+  opacity: 1;
+  visibility: visible;
+  scale: 1;
+}
+
+.edit_form {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.inputs_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.inputs_container input {
+  width: 100%;
+  border: 1px solid black;
+  height: 46px;
+  background-color: inherit;
+  padding: 0 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.submit_edit_btn {
+  width: 100px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: #343417;
+  color: #efe6d7;
+  box-shadow: var(--box-shadow);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
