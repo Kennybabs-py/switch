@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { AiOutlinePlus, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-import { del } from "../../store/slices/productsSlice";
+import { del, toggleAddState } from "../../store/slices/productsSlice";
 
 import AddProduct from "../add-product";
 import styles from "./products.module.css";
 
 export default function Products() {
-  const [showEdit, setShowEdit] = useState(false);
-  const products = useSelector((state) => state.products);
+  const state = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.data);
+
   const dispatch = useDispatch();
 
   return (
@@ -19,21 +19,21 @@ export default function Products() {
         <div className={styles.add_product}>
           <button
             onClick={() => {
-              setShowEdit(!showEdit);
+              dispatch(toggleAddState({ ...state, isAddData: true }));
             }}
           >
             <AiOutlinePlus /> Add Product
           </button>
 
           <div className={styles.add_form_container}>
-            <AddProduct showEdit={showEdit} setShowEdit={setShowEdit} />
+            <AddProduct />
           </div>
         </div>
 
         <div className={styles.products_list}>
-          {products.length !== 0 ? (
+          {products?.length > 0 ? (
             <>
-              {products.map((item) => {
+              {products?.map((item) => {
                 return (
                   <div key={item.id} className={styles.product_item}>
                     <h2> {item.productName}</h2>

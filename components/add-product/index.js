@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { add } from "../../store/slices/productsSlice";
+import { add, toggleAddState } from "../../store/slices/productsSlice";
 import styles from "./styles.module.css";
 
-export default function AddProduct(props) {
-  const { showEdit, setShowEdit } = props;
+export default function AddProduct() {
+  const state = useSelector((state) => state.products);
+  const isAddData = useSelector((state) => state.products.isAddData);
+
   const [formData, setFormData] = useState({
     productName: "",
     productPrice: "",
@@ -33,7 +35,7 @@ export default function AddProduct(props) {
           productPrice: formData.productPrice,
         })
       );
-      setShowEdit(false);
+      dispatch(toggleAddState({ ...state, isAddData: false }));
       setFormData({ productName: "", productPrice: "", category: "" });
     } else {
       alert("Please fill the form!");
@@ -46,7 +48,7 @@ export default function AddProduct(props) {
       onSubmit={(e) => {
         handleSubmit(e);
       }}
-      className={`${styles.add_form} ${showEdit ? styles.open : null}`}
+      className={`${styles.add_form} ${isAddData ? styles.open : null}`}
     >
       <div className={styles.inputs_container}>
         <input

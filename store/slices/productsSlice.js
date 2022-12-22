@@ -5,18 +5,18 @@ import { productsData as data } from "../../database";
 
 const slice = createSlice({
   name: "products",
-  initialState: data,
+  initialState: { data: data, isAddData: false },
   reducers: {
     add: (state, action) => {
       if (action.payload.productName) {
-        let newState = [...state];
-        newState.push({
+        const newProduct = {
           id: uuid(),
           productName: action.payload.productName,
           category: action.payload.category,
           productPrice: action.payload.productPrice,
-        });
-        return newState;
+        };
+
+        return { ...state, data: [...state.data, newProduct] };
       }
     },
     edit: (state, action) => {
@@ -31,13 +31,17 @@ const slice = createSlice({
     },
     del: (state, action) => {
       if (action.payload.id) {
-        let newState = [...state];
-        newState = newState.filter((item) => item.id != action.payload.id);
-        return newState;
+        const newState = state.data.filter(
+          (item) => item.id != action.payload.id
+        );
+        return { ...state, data: newState };
       }
+    },
+    toggleAddState: (state) => {
+      return { ...state, isAddData: !state.isAddData };
     },
   },
 });
 
-export const { add, edit, del } = slice.actions;
+export const { add, edit, del, toggleAddState } = slice.actions;
 export default slice.reducer;
