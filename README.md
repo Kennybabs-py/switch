@@ -4,7 +4,7 @@ Clone the repo on the command line:
 
 git clone [https://github.com/Kennybabs-py/switch.git](https://github.com/Kennybabs-py/switch.git)
 
-First, run the development server:
+Then, run the development server:
 
 ```bash
 npm run dev
