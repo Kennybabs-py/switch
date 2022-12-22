@@ -1,9 +1,9 @@
 ## A simple e-commerce app built with Next.Js and Redux
 
-Clone the repo by copying the code link, then:
+Clone the repo on the command line:
 
 ```bash
-git clone
+git clone [https://github.com/Kennybabs-py/switch.git](https://github.com/Kennybabs-py/switch.git)
 
 ```
 
